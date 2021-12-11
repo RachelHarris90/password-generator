@@ -11,11 +11,16 @@ var lowerUpperCase = "L";
 generateBtn.addEventListener("click", writePassword);
 
 // Prompt for criteria of password
-length = window.prompt("How long do you want your password to be? Enter a number betwen 8 and 128");
+length = window.prompt("How long do you want your password to be? Enter a number between 8 and 128");
     console.log(length);
 
 // Validate length entered is between 8 and 128
+if (length > 128) {
+  window.alert('Sorry, the length must be no more than 128 characters');
 
+} else if (length < 8) {
+    window.alert('Sorry, the length must be at least 8 characters');
+  }
 
 // Ask if special characters should be included in password 
 specialCharacter = window.prompt ('Do you wany special characters in your password? Enter "Yes" or "No"');
