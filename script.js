@@ -1,8 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var password = "abc123";
-
 // Inputs
 var passwordLength = 0;
 var specialCharacter = true;
@@ -66,17 +64,26 @@ lowerUpperCase = lowerUpperCase.toUpperCase()
   console.log(lowerUpperCase)  
 
 
-//Randomly generate password 
 //TODO: Use criteria to generate password
-var password = Math.floor(Math.random().toString(36).substr(2, 5));
 
-console.log(password)
+
+function generatePassword() {
+  for (var i = 0; i < passwordLength; i++) {
+    var randomPassword = Math.floor(Math.random() * passwordLength); {
+      console.log(randomPassword)
+    }
+  }
+}
+
+generatePassword();
+
 
 // Write password to the #password input
+
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
-}
+};
