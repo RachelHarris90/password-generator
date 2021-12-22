@@ -1,14 +1,14 @@
-var alphaCharactersUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var alphaCharacterLower = "abcdefghijklmnopqrstuvwxyz";
-var numericCharacter = "0123456789";
-var specialCharacter = "!@#$%^&*()?/";
-
 var passwordLength = 10;
-var incUpperOrLowerCase = true;
 var incUpperCase = true;
 var incLowerCase = true;
 var incNumeric = true;
 var incSpecialCharacter = true;
+
+var numericCharacter = "0123456789";
+var specialCharacter = "!@#$%^&*()?/";
+var alphaCharacterLower = "abcdefghijklmnopqrstuvwxyz";
+var alphaCharactersUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
 
 var password = "";
 var acceptableCharacters = "";
@@ -34,9 +34,9 @@ function enterNumeric() {
   incNumeric = incNumeric.toUpperCase()
   // Convert YES/NO to true/false then console log answer
   if (incNumeric == "YES") {
-    incNumeric = true;
+    incNumeric = numericCharacter;
   } else {
-    incNumeric = false;
+    incNumeric = "";
   }
   console.log(incNumeric);
 };
@@ -50,9 +50,9 @@ function enterSpecialCharacter () {
   incSpecialCharacter = incSpecialCharacter.toUpperCase();
   // Convert YES/NO to true/false then console log answer
   if (incSpecialCharacter == "YES") {
-    incSpecialCharacter = true;
+    incSpecialCharacter = specialCharacter;
   } else {
-    incSpecialCharacter = false;
+    incSpecialCharacter = "";
   }
   console.log(incSpecialCharacter);
 };
@@ -65,9 +65,9 @@ var enterLowerCase = function() {
   var incLowerCase = window.prompt ('Do you want lowercase letters in your password? Enter "Yes" or "No"');
   incLowerCase = incLowerCase.toUpperCase();  
   if (incLowerCase == "YES") {
-    incLowerCase = true;
+    incLowerCase = alphaCharacterLower;
   } else {
-    incLowerCase = false;
+    incLowerCase = "";
   }
   console.log(incLowerCase);
 };
@@ -79,14 +79,18 @@ var enterUpperCase = function() {
   var incUpperCase = window.prompt ('Do you want uppercase letters in your password? Enter "Yes" or "No"');
   incUpperCase = incUpperCase.toUpperCase();  
   if (incUpperCase == "YES") {
-    incUpperCase = true;
+    incUpperCase = alphaCharactersUpper;
   } else {
-    incUpperCase = false;
+    incUpperCase = "";
   }
   console.log(incUpperCase);
 };
 
-enterLowerCase();
+enterUpperCase();
+
+var concatIncludedCharacters = (incUpperCase + incLowerCase + incNumeric + incSpecialCharacter);
+
+console.log(concatIncludedCharacters);
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -94,8 +98,8 @@ var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
 for (let i = 0; i < passwordLength; i++) {
-  var randomPassword = Math.floor(Math.random() * alphaCharactersUpper.length);
-    password += alphaCharactersUpper.slice(randomPassword, randomPassword +1);
+  var randomPassword = Math.floor(Math.random() * concatIncludedCharacters.length);
+    password += concatIncludedCharacters.slice(randomPassword, randomPassword +1);
   };
 }
  
