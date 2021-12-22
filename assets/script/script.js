@@ -76,7 +76,7 @@ enterLowerCase();
 
 var enterUpperCase = function() {
   // Ask if password should be lowercase or uppercase
-  var incUpperCase = window.prompt ('Do you want lowercase letters in your password? Enter "Yes" or "No"');
+  var incUpperCase = window.prompt ('Do you want uppercase letters in your password? Enter "Yes" or "No"');
   incUpperCase = incUpperCase.toUpperCase();  
   if (incUpperCase == "YES") {
     incUpperCase = true;
