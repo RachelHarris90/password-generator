@@ -12,6 +12,9 @@ var alphaCharactersUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var password = "";
 var includedCharacters = "";
 
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
+
 // Prompt for criteria of password
 function enterPasswordLength() {
   passwordLength = window.prompt("How long do you want your password to be? Enter a number between 8 and 128");
@@ -81,9 +84,6 @@ function enterUpperCase() {
 enterUpperCase();
 console.log(incUpperCase);
 
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
-
 function getIncludedCharacters() {
   includedCharacters = (incSpecialCharacter + incUpperCase + incLowerCase + incNumeric);
 }
@@ -110,6 +110,6 @@ function writePassword() {
   passwordText.value = password;
 }
 
-// // Add event listener to generate button
+// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 

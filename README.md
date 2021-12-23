@@ -24,7 +24,7 @@ The inputs are entered by the user into window prompts.
 Some validation exists on the length of the password, where the password must be a minimum of 8 and no more than 128 characters. If a number outside of this range is entered, the user will see an error in a window alert.
 
 ### Generated password in the browser
-The user clicks on the "Generate Password" button and will be prompted to enter their password criteria. Once the required inputs have been entered, the random password appears in the box on the page.
+Once the required inputs have been entered, the user can click on the red "Generate Password" and will then see the random password in the box above.
 
 ## Getting started
 ### Prerequisites
