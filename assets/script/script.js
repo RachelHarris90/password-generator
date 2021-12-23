@@ -55,7 +55,6 @@ function enterSpecialCharacter() {
 
 enterSpecialCharacter();
 
-
 function enterLowerCase() {
   incLowerCase = window.prompt ('Do you want lowercase letters in your password? Enter "Yes" or "No"');
   incLowerCase = incLowerCase.toUpperCase();  
@@ -70,7 +69,6 @@ function enterLowerCase() {
 enterLowerCase();
 
 function enterUpperCase() {
-  // Ask if password should be lowercase or uppercase
   incUpperCase = window.prompt ('Do you want uppercase letters in your password? Enter "Yes" or "No"');
   incUpperCase = incUpperCase.toUpperCase();  
   if (incUpperCase == "YES") {
@@ -89,17 +87,18 @@ var generateBtn = document.querySelector("#generate");
 function getIncludedCharacters() {
   includedCharacters = (incSpecialCharacter + incUpperCase + incLowerCase + incNumeric);
 }
-
 getIncludedCharacters();
 console.log(includedCharacters);
 
-function generatePassword(passwordLength) {
-  for (let i = 0; i < passwordLength; i++) {
-    var randomPassword = Math.floor(Math.random() * includedCharacters.length); 
-  };
+function generatePassword() {
+  password = "";
+  for (var i = 0; i < passwordLength; i++) {
+    password = includedCharacters.substring(Math.floor(Math.random() * passwordLength));
+  }
+  return password;
 }
- 
-generatePassword() 
+
+generatePassword();
 console.log(password);
 
 
@@ -113,3 +112,4 @@ function writePassword() {
 
 // // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
