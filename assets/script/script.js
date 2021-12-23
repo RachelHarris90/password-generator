@@ -5,7 +5,7 @@ var incNumeric = "";
 var incSpecialCharacter = "";
 
 var numericCharacter = "0123456789";
-var specialCharacter = "!@#$%^&*()?/";
+var specialCharacter = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 var alphaCharacterLower = "abcdefghijklmnopqrstuvwxyz";
 var alphaCharactersUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
