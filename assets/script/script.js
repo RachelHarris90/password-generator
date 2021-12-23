@@ -1,17 +1,16 @@
 var passwordLength = 10;
-var incUpperCase = true;
-var incLowerCase = true;
-var incNumeric = true;
-var incSpecialCharacter = true;
+var incUpperCase = "";
+var incLowerCase = "";
+var incNumeric = "";
+var incSpecialCharacter = "";
 
 var numericCharacter = "0123456789";
 var specialCharacter = "!@#$%^&*()?/";
 var alphaCharacterLower = "abcdefghijklmnopqrstuvwxyz";
 var alphaCharactersUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-
 var password = "";
-var acceptableCharacters = "";
+var includedCharacters = "";
 
 // Prompt for criteria of password
 function enterPasswordLength() {
@@ -29,7 +28,7 @@ enterPasswordLength();
 
 function enterNumeric() {
   // Ask if numbers should be included in password 
-  var incNumeric = window.prompt ('Do you want numeric characters in your password? Enter "Yes" or "No"')
+  incNumeric = window.prompt ('Do you want numeric characters in your password? Enter "Yes" or "No"')
   // Convert response to uppercase to use in IF statement
   incNumeric = incNumeric.toUpperCase()
   // Convert YES/NO to true/false then console log answer
@@ -43,12 +42,9 @@ function enterNumeric() {
 
 enterNumeric();
 
-// Ask if special characters should be included in password 
-function enterSpecialCharacter () {
+function enterSpecialCharacter() {
   incSpecialCharacter = window.prompt ('Do you want special characters in your password? Enter "Yes" or "No"');
-  // Convert response to uppercase to use in IF statement
   incSpecialCharacter = incSpecialCharacter.toUpperCase();
-  // Convert YES/NO to true/false then console log answer
   if (incSpecialCharacter == "YES") {
     incSpecialCharacter = specialCharacter;
   } else {
@@ -60,9 +56,8 @@ function enterSpecialCharacter () {
 enterSpecialCharacter();
 
 
-var enterLowerCase = function() {
-  // Ask if password should be lowercase or uppercase
-  var incLowerCase = window.prompt ('Do you want lowercase letters in your password? Enter "Yes" or "No"');
+function enterLowerCase() {
+  incLowerCase = window.prompt ('Do you want lowercase letters in your password? Enter "Yes" or "No"');
   incLowerCase = incLowerCase.toUpperCase();  
   if (incLowerCase == "YES") {
     incLowerCase = alphaCharacterLower;
@@ -74,32 +69,33 @@ var enterLowerCase = function() {
 
 enterLowerCase();
 
-var enterUpperCase = function() {
+function enterUpperCase() {
   // Ask if password should be lowercase or uppercase
-  var incUpperCase = window.prompt ('Do you want uppercase letters in your password? Enter "Yes" or "No"');
+  incUpperCase = window.prompt ('Do you want uppercase letters in your password? Enter "Yes" or "No"');
   incUpperCase = incUpperCase.toUpperCase();  
   if (incUpperCase == "YES") {
     incUpperCase = alphaCharactersUpper;
   } else {
     incUpperCase = "";
   }
-  console.log(incUpperCase);
 };
 
 enterUpperCase();
-
-var concatIncludedCharacters = (incUpperCase + incLowerCase + incNumeric + incSpecialCharacter);
-
-console.log(concatIncludedCharacters);
+console.log(incUpperCase);
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+function getIncludedCharacters() {
+  includedCharacters = (incSpecialCharacter + incUpperCase + incLowerCase + incNumeric);
+}
 
-function generatePassword() {
-for (let i = 0; i < passwordLength; i++) {
-  var randomPassword = Math.floor(Math.random() * concatIncludedCharacters.length);
-    password += concatIncludedCharacters.slice(randomPassword, randomPassword +1);
+getIncludedCharacters();
+console.log(includedCharacters);
+
+function generatePassword(passwordLength) {
+  for (let i = 0; i < passwordLength; i++) {
+    var randomPassword = Math.floor(Math.random() * includedCharacters.length); 
   };
 }
  
