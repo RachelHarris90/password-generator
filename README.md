@@ -35,9 +35,9 @@ To clone the repo, follow the instructions by following the instructions at [clo
 
 1. Open Terminal
 2. Change the current working directory to the location where you want the cloned directory
-3. Type git clone, and then paste the URL you copied earlier
+3. Paste the text below
 ```
-$ git clone https://github.com/rachel-harris-portfolio-website/
+$ git clone https://github.com/RachelHarris90/password-generator.git
 ```
 4. Press Enter
 
@@ -46,9 +46,6 @@ The website can be viewed in [Github pages](https://rachelharris90.github.io/pas
 
 ## Credits
 The author of this repo is Rachel Harris, a student of Trilogy Developer Bootcamp. Starter code was provided.
-
-## License
-Not licensed.
 
 ## Tests
 The code in this repo is not currently covered with automated tests.
